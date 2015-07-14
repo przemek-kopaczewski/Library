@@ -35,7 +35,7 @@ class Book
         return $this->type;
     }
     
-    public function getFullBook() 
+    public function getAllInfoBook() 
     {
         return $this->id . ' ' . $this->title . ' ' . $this->author . ' ' . $this->type;
     }

@@ -1,23 +1,18 @@
 <?php
 
-class Client
+class Employee
 {
-    private $id;
     private $firstName;
     private $lastName;
     private $email;
+    private $city;
     
-    public function __construct($id, $firstName, $lastName, $email) 
+    public function __construct($firstName, $lastName, $email, $city) 
     {
-        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
-    }
-    
-    public function getId()
-    {
-        return $this->id;
+        $this->city = $city;
     }
     
     public function getfirstName()
@@ -34,8 +29,13 @@ class Client
     {
         return $this->email;
     }
-    public function getFullHire()
+    
+    public function getCity()
     {
-        return $this->id . ' ' . $this->firstName . ' ' . $this->lastName . ' ' . $this->email;
+        return $this->city;
+    }
+    public function getAllInfoEmployee() 
+    {
+        return $this->firstName . ' ' . $this->lastName . ' ' . $this->email . ' ' . $this->city;
     }
 }
