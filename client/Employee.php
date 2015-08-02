@@ -7,14 +7,20 @@ class Employee
     private $email;
     private $city;
     
-    public function __construct($firstName, $lastName, $email, $city) 
+    public function __construct($id, $firstName, $lastName, $email, $city) 
     {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->city = $city;
     }
     
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function getfirstName()
     {
         return $this->firstName;
