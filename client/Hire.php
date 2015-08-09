@@ -2,10 +2,11 @@
 
 class Hire
 {
+    private $id;
     private $hireDate;
     private $returnDate;
     
-    public function __construct(Book $book, Employee $employee, $hireDate, $returnDate, $id)
+    public function __construct($id, Book $book, Employee $employee, $hireDate, $returnDate)
     {
         $this->id = $id;
         $this->employee = $employee;

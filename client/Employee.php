@@ -2,6 +2,7 @@
 
 class Employee
 {
+    private $id;
     private $firstName;
     private $lastName;
     private $email;
