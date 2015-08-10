@@ -27,68 +27,18 @@ require 'connect.php';
                     data zwrotu
                 </td>
             </tr>
-            <tr>
-                <td>
                     <?php
-                    $stmt = $pdo->query('SELECT id FROM hire');
-                    foreach($stmt as $row)
-                    {
-                        echo $row['id'].'<br>';
+                    $stmt = $pdo->query('SELECT hire.*, book.title, book.author, client.firstname, client.lastname FROM `hire` INNER JOIN `book` ON hire.id_book=book.id INNER JOIN `client` ON hire.id_client=client.id');
+                    foreach ($stmt as $row){
+                        echo '<tr><td>' . $row['id'] . '<br>' . '</td>';
+                        echo '<td>' . $row['title'] . '<br>' . '</td>';
+                        echo '<td>' . $row['author'] . '<br>' . '</td>';
+                        echo '<td>' . $row['firstname'] . ' ' . $row['lastname'] . '<br>' . '</td>';
+                        echo '<td>' . $row['hiredate'] . '<br>' . '</td>';
+                        echo '<td>' . $row['returndate'] . '<br>' . '</td></tr>';
                     }
                     $stmt->closeCursor();
                     ?>
-                </td>
-                <td>
-                    <?php
-                    $stmt = $pdo->query('SELECT title FROM book');
-                    foreach($stmt as $row)
-                    {
-                        echo $row['title'].'<br>';
-                    }
-                    $stmt->closeCursor();
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    $stmt = $pdo->query('SELECT author FROM book');
-                    foreach($stmt as $row)
-                    {
-                        echo $row['author'].'<br>';
-                    }
-                    $stmt->closeCursor();
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    $stmt = $pdo->query('SELECT firstname, lastname FROM client');
-                    foreach($stmt as $row)
-                    {
-                        echo $row['firstname'].'<br>'. $row['lastname'].'<br>';
-                    }
-                    $stmt->closeCursor();
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    $stmt = $pdo->query('SELECT hiredate FROM hire');
-                    foreach($stmt as $row)
-                    {
-                        echo $row['hiredate'].'<br>';
-                    }
-                    $stmt->closeCursor();
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    $stmt = $pdo->query('SELECT returndate FROM hire');
-                    foreach($stmt as $row)
-                    {
-                        echo $row['returndate'].'<br>';
-                    }
-                    $stmt->closeCursor();
-                    ?>
-                </td>
-            </tr>
         </table>
     </body>
 </html>
